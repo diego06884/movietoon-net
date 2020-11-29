@@ -1,6 +1,12 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import bannerImg from "../assets/banner-orig.jpeg";
 import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
   Typography,
   Button,
   ButtonGroup,
@@ -63,6 +69,9 @@ const rows = [
 
 const MoviesLanding = () => {
   const useStyles = makeStyles((theme) => ({
+    bannerImg: {
+      height: "250px",
+    },
     tableRoot: {
       marginTop: theme.spacing(3),
     },
@@ -86,10 +95,26 @@ const MoviesLanding = () => {
   return (
     <>
       <CssBaseline />
-      <Typography variant="h2">Movies</Typography>
-      <Button variant="contained" color="primary">
-        Add new movie
-      </Button>
+      <Card>
+        <CardActionArea>
+          <CardMedia
+            className={classes.bannerImg}
+            image={bannerImg}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography variant="h5" color="primary">
+              Movies
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button variant="contained" color="primary">
+              Add new movie
+            </Button>
+          </CardActions>
+        </CardActionArea>
+      </Card>
+
       <Paper className={classes.tableRoot}>
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table">
