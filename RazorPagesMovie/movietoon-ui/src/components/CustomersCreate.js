@@ -14,6 +14,10 @@ import {
   CssBaseline,
   TextField,
   Grid,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@material-ui/core";
 import {
   MuiPickersUtilsProvider,
@@ -23,7 +27,7 @@ import {
 import SaveIcon from "@material-ui/icons/Save";
 import DateFnsUtils from "@date-io/date-fns";
 
-const MoviesCreate = () => {
+const CustomersCreate = () => {
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2014-08-18T21:11:54")
   );
@@ -46,6 +50,9 @@ const MoviesCreate = () => {
         margin: theme.spacing(1),
         width: "100%",
       },
+    },
+    formControl: {
+      width: "100%",
     },
     saveBtn: {
       width: "50%",
@@ -83,7 +90,7 @@ const MoviesCreate = () => {
           />
           <CardContent>
             <Typography variant="h5" color="primary">
-              Movies
+              Customers
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -96,7 +103,7 @@ const MoviesCreate = () => {
               variant="h4"
               color="Primary"
             >
-              Add new movie
+              Add new customer
             </Typography>
           </Grid>
           <Grid item xs={8}>
@@ -105,38 +112,62 @@ const MoviesCreate = () => {
                 <Grid item xs={12}>
                   <TextField
                     id="standard-basic"
-                    label="Title"
+                    label="First Name"
                     variant="standard"
                   />
                 </Grid>
 
                 <Grid item xs={12}>
-                  <TextField id="standard-basic" label="Genre" />
+                  <TextField id="standard-basic" label="Last Name" />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     error
                     id="standard-basic"
-                    label="Price"
-                    helperText="Only numbers allowed"
+                    label="Email"
+                    helperText="invalid email format"
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <KeyboardDatePicker
+                      error
                       disableToolbar
                       variant="inline"
                       format="MM/dd/yyyy"
                       margin="normal"
                       id="date-picker-inline"
-                      label="Release Date"
+                      label="Birthday"
                       value={selectedDate}
                       onChange={handleDateChange}
+                      helperText="Customer should be over 18 years old"
                       KeyboardButtonProps={{
                         "aria-label": "change date",
                       }}
                     />
                   </MuiPickersUtilsProvider>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField id="standard-basic" label="Phone number" />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField id="standard-basic" label="Address" />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl className={classes.formControl}>
+                    <InputLabel id="demo-simple-select-label">
+                      Membership
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                    >
+                      <MenuItem value={10}>Pay as you go</MenuItem>
+                      <MenuItem value={20}>Monthly</MenuItem>
+                      <MenuItem value={30}>Quarterly</MenuItem>
+                      <MenuItem value={40}>Yearly</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12}>
                   <Button
@@ -158,4 +189,4 @@ const MoviesCreate = () => {
   );
 };
 
-export default MoviesCreate;
+export default CustomersCreate;
