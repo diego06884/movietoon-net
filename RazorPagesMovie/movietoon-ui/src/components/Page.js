@@ -13,6 +13,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import PieChartIcon from "@material-ui/icons/PieChart";
 import {
   CssBaseline,
   AppBar,
@@ -253,6 +254,12 @@ function Page({ children }) {
                 <ListItemText primary="Rentals" />
               </ListItem>
               <Divider />
+              <ListItem button>
+                <ListItemIcon>
+                  <PieChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Reports" />
+              </ListItem>
               <ListItem button>
                 <ListItemIcon>
                   <PowerSettingsNewIcon />

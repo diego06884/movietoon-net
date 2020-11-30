@@ -114,7 +114,12 @@ const MoviesLanding = () => {
                   <TextField id="standard-basic" label="Genre" />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField id="standard-basic" label="Price" />
+                  <TextField
+                    error
+                    id="standard-basic"
+                    label="Price"
+                    helperText="Only numbers allowed"
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <MuiPickersUtilsProvider utils={DateFnsUtils}>
