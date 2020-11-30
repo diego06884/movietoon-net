@@ -2,7 +2,7 @@ import React from "react";
 import Page from "../Page";
 import MoviesCreate from "../MoviesCreate";
 
-function Landing() {
+function Create() {
   return (
     <Page>
       <MoviesCreate />
@@ -10,4 +10,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Create;
